@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tower of Hanoi | Enhanced</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Theme toggle -->
+  <div class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </div>
+
+  <div class="container">
+    <header>
+      <h1>Tower of Hanoi</h1>
+      <p class="subtitle">Move all disks to the rightmost tower following the rules</p>
+      <div class="author-info">
+        <p>Created by Ayush Gupta</p>
+        <div class="social-links">
+          <a href="https://github.com/dj-ayush" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/ayush7ag/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Game container -->
+    <div class="game-container">
+      <!-- Stats display -->
+      <div class="stats">
+        <div class="stat-box">
+          <div class="stat-value" id="moveCount">0</div>
+          <div class="stat-label">Moves</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="minMoves">0</div>
+          <div class="stat-label">Minimum Moves</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="timeElapsed">00:00</div>
+          <div class="stat-label">Time</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="complexity">O(2ⁿ)</div>
+          <div class="stat-label">Complexity</div>
+        </div>
+      </div>
+
+      <!-- Game board -->
+      <div class="game-board" id="gameBoard">
+        <div class="towers" id="towers"></div>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <button class="btn btn-primary" id="autoSolveBtn">
+          <i class="fas fa-robot"></i> Auto Solve
+        </button>
+        <button class="btn btn-secondary" id="resetBtn">
+          <i class="fas fa-redo"></i> Reset
+        </button>
+        <button class="btn btn-success" id="newGameBtn">
+          <i class="fas fa-plus-circle"></i> New Game
+        </button>
+        <button class="btn btn-danger" id="helpBtn">
+          <i class="fas fa-question-circle"></i> Help
+        </button>
+        <button class="btn btn-info" id="statsBtn">
+          <i class="fas fa-chart-bar"></i> Stats
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal" id="winModal">
+    <div class="modal-content">
+      <h2>Congratulations!</h2>
+      <p>You solved the Tower of Hanoi in <span id="finalMoves">0</span> moves!</p>
+      <p>Time: <span id="finalTime">00:00</span></p>
+      <div class="modal-buttons">
+        <button class="btn btn-primary" id="nextLevelBtn">
+          <i class="fas fa-arrow-up"></i> Next Level
+        </button>
+        <button class="btn btn-secondary" id="playAgainBtn">
+          <i class="fas fa-redo"></i> Play Again
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="helpModal">
+    <div class="modal-content">
+      <h2>How to Play</h2>
+      <p>The objective is to move all disks from the left tower to the right tower.</p>
+      <p><strong>Rules:</strong></p>
+      <ul class="rules-list">
+        <li>Only one disk can be moved at a time</li>
+        <li>A disk can only be placed on top of a larger disk or an empty tower</li>
+        <li>You can click on a tower to pick up or place a disk</li>
+      </ul>
+      <p><strong>Controls:</strong></p>
+      <ul class="controls-list">
+        <li><strong>Click</strong> on a tower to select/deselect disks</li>
+        <li><strong>Arrow keys</strong> to move between towers</li>
+        <li><strong>Space/Enter</strong> to pick up/place disks</li>
+      </ul>
+      <div class="modal-buttons">
+        <button class="btn btn-primary" id="closeHelpBtn">
+          <i class="fas fa-check"></i> Got it!
+        </button>
+        <button class="btn btn-success" id="tutorialBtn">
+          <i class="fas fa-graduation-cap"></i> Show Tutorial
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="newGameModal">
+    <div class="modal-content">
+      <h2>New Game</h2>
+      <p>Select difficulty level:</p>
+      <div class="difficulty-selector">
+        <div class="difficulty-btn easy" data-disks="3">Easy (3 disks)</div>
+        <div class="difficulty-btn medium" data-disks="4">Medium (4 disks)</div>
+        <div class="difficulty-btn hard" data-disks="5">Hard (5 disks)</div>
+        <div class="difficulty-btn expert" data-disks="6">Expert (6 disks)</div>
+      </div>
+      <div class="modal-buttons">
+        <button class="btn btn-primary" id="startGameBtn">
+          <i class="fas fa-play"></i> Start Game
+        </button>
+        <button class="btn btn-secondary" id="cancelNewGameBtn">
+          <i class="fas fa-times"></i> Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="statsModal">
+    <div class="modal-content">
+      <h2>Algorithm Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3>Time Complexity</h3>
+          <p>O(2<sup>n</sup>)</p>
+          <p class="explanation">Exponential growth - each additional disk doubles the required moves</p>
+          <div class="complexity-visual">
+            <div class="complexity-bar" style="width: 100%; background: #f72585;"></div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <h3>Space Complexity</h3>
+          <p>O(n)</p>
+          <p class="explanation">Linear space - proportional to the number of disks (recursion depth)</p>
+          <div class="complexity-visual">
+            <div class="complexity-bar" style="width: 60%; background: #4895ef;"></div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <h3>Minimum Moves</h3>
+          <p>2<sup>n</sup> - 1</p>
+          <p class="explanation">Mathematically proven optimal solution</p>
+          <div class="complexity-visual">
+            <div class="complexity-bar" style="width: 80%; background: #4cc9f0;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-buttons">
+        <button class="btn btn-primary" id="closeStatsBtn">
+          <i class="fas fa-check"></i> Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio elements -->
+  <audio id="moveSound" src="https://assets.mixkit.co/sfx/preview/mixkit-unlock-game-notification-253.mp3"></audio>
+  <audio id="winSound" src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3"></audio>
+  <audio id="errorSound" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-retro-game-over-213.mp3"></audio>
+  <audio id="selectSound" src="https://assets.mixkit.co/sfx/preview/mixkit-quick-jump-arcade-game-239.mp3"></audio>
+
+  <!-- Scripts -->
+  <script src="solver.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
