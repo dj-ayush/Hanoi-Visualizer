@@ -8,8 +8,7 @@
 ![Issues](https://img.shields.io/github/issues/dj-ayush/Hanoi-Visualizer?color=orange)
 ![Last Commit](https://img.shields.io/github/last-commit/dj-ayush/Hanoi-Visualizer?color=blue)
 
-**Hanoi Visualizer** is an interactive Tower of Hanoi simulation that features smooth visuals, intuitive keyboard controls, and an integrated auto‑solver algorithm to demonstrate the optimal sequence of moves.
-
+**Hanoi Visualizer** is an interactive Tower of Hanoi simulation featuring smooth visuals, easy keyboard controls, and a built‑in auto‑solver algorithm to showcase the optimal sequence.
 ---
 
 ## ✨ Features
@@ -77,7 +76,7 @@ We welcome contributions!
 ## 📌 Live Demo
 
 Experience the project in action here:  
-👉 **[Live Demo](https://dj-ayush.github.io/Hanoi-Visualizer/)**  
+👉 **[Live Demo](https://hanoi-visualizer.vercel.app/)**  
 
 ## 📄 License
 
