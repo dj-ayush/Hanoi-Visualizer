@@ -2,7 +2,7 @@
 ![HTML5](https://img.shields.io/badge/HTML5-Markup-orange?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-Styles-blue?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-Frontend-yellow?logo=javascript&logoColor=white)
-![License](https://img.shields.io/github/license/dj-ayush/Hanoi-Visualizer?color=green)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Stars](https://img.shields.io/github/stars/dj-ayush/Hanoi-Visualizer?style=social)
 ![Forks](https://img.shields.io/github/forks/dj-ayush/Hanoi-Visualizer?style=social)
 ![Issues](https://img.shields.io/github/issues/dj-ayush/Hanoi-Visualizer?color=orange)
@@ -30,48 +30,59 @@
 
 ## 📁 Folder Structure
 ---
+```
 Hanoi-Visualizer/
 ├── index.html
 ├── style.css
 ├── script.js
 ├── solver.js
 └── README.md
-
-yaml
-Copy
-Edit
+```
 
 ---
 
 ## ⚙️ Getting Started
-
+---
 ### 1. Clone the repo
 ```bash
 git clone https://github.com/dj-ayush/Hanoi-Visualizer.git
 cd Hanoi-Visualizer
-2. Open the project
+```
+---
+### 2. Open the project
+```bash
 Simply open index.html in your preferred browser.
+```
+---
+## 🎮 Controls
 
-🎮 Controls
-Key	Action
-⬅️ ➡️	Move selection between towers
-⬆️ ⬇️ / Space / Enter	Pick or place a disk
-UI Buttons	Change disk count or toggle auto-solver
+| Key / Button | Action |
+|--------------|--------|
+| ⬅️ ➡️ | Move selection between towers |
+| ⬆️ ⬇️ / Space / Enter | Pick up or place a disk |
+| UI Buttons | Change disk count or toggle auto‑solver |
 
-🤝 Contributing
+
+## 🤝 Contributing
+
 We welcome contributions!
 
-Fork the repo
+1. Fork the repo
+2. Create a new branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -m "Added feature"`
+4. Push to your branch: `git push origin feature-name`
+5. Create a pull request 🚀
 
-Create a new branch: git checkout -b feature-name
+---
+## 📌 Live Demo
 
-Commit your changes: git commit -m "Added feature"
+Experience the project in action here:  
+👉 **[Live Demo](https://dj-ayush.github.io/Hanoi-Visualizer/)**  
 
-Push to your branch: git push origin feature-name
+## 📄 License
 
-Create a pull request 🚀
+This project is licensed under the [MIT License](LICENSE).
 
-📄 License
-This project is licensed under the MIT License.
+---
 
-Built with ❤️ by @dj-ayush
+> Built with ❤️ by [@dj-ayush](https://github.com/dj-ayush)
